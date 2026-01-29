@@ -1,0 +1,218 @@
+Paracetamol
+- Use: Fever, Headache, Pain relief
+- Dosage: 500 mg to 1 gram every 4-6 hours (max 4 grams/day)
+- Side Effects: Nausea, allergic reactions, liver damage (in high doses)
+- Precautions: Avoid alcohol, liver disease patients should use with caution.
+
+Ibuprofen
+- Use: Pain relief, Inflammation, Fever
+- Dosage: 200 mg to 400 mg every 4-6 hours (max 1.2 grams/day)
+- Side Effects: Stomach upset, ulcers, kidney issues
+- Precautions: Avoid in pregnant women, especially in the third trimester, caution 
+in patients with kidney disease.
+
+Aspirin
+- Use: Pain relief, Anti-inflammatory, Blood thinner (for heart conditions)
+- Dosage: 325 mg every 4-6 hours (max 4 grams/day)
+- Side Effects: Stomach irritation, bleeding risks, allergic reactions
+- Precautions: Avoid in children with viral infections (due to risk of Reye's 
+syndrome), avoid in patients with bleeding disorders.
+
+Diclofenac
+- Use: Pain relief, Inflammation (Arthritis, injuries)
+- Dosage: 50 mg to 75 mg every 8-12 hours
+- Side Effects: Stomach pain, dizziness, liver issues
+- Precautions: Use cautiously in elderly, avoid in patients with peptic ulcers.
+
+Amoxicillin
+- Use: Bacterial infections (antibiotic)
+- Dosage: 250 mg to 500 mg every 8 hours (for adults)
+- Side Effects: Nausea, diarrhea, allergic reactions
+- Precautions: Allergies to penicillin, use with caution in people with kidney 
+problems.
+
+Hyoscine
+- Use: Motion sickness, Irritable Bowel Syndrome (IBS)
+- Dosage: 0.3 mg to 0.6 mg every 8 hours
+- Side Effects: Drowsiness, blurred vision, dry mouth
+- Precautions: Avoid in glaucoma, caution in elderly with prostate problems.
+
+Cetirizine
+- Use: Allergy symptoms (Hay fever, rash, hives)
+- Dosage: 10 mg once daily
+- Side Effects: Drowsiness, dry mouth
+- Precautions: Caution in people with liver disease or epilepsy.
+
+Metformin
+- Use: Type 2 Diabetes (Blood sugar control)
+- Dosage: 500 mg to 1000 mg twice daily
+- Side Effects: Nausea, abdominal discomfort, lactic acidosis (rare)
+- Precautions: Avoid in patients with kidney issues or metabolic acidosis.
+
+Losartan
+- Use: Hypertension, Heart failure
+- Dosage: 50 mg once daily
+- Side Effects: Dizziness, fatigue, high potassium levels
+- Precautions: Avoid in pregnancy, monitor kidney function.
+
+Azithromycin
+- Use: Bacterial infections (respiratory, skin, and ear infections)
+- Dosage: 500 mg on day 1, followed by 250 mg for the next 4 days
+- Side Effects: Nausea, diarrhea, stomach pain
+- Precautions: Use cautiously in patients with liver problems or QT prolongation.
+
+Ciprofloxacin
+- Use: Bacterial infections (urinary tract, respiratory tract, skin)
+- Dosage: 250 mg to 500 mg every 12 hours
+- Side Effects: Nausea, diarrhea, tendonitis, dizziness
+- Precautions: Avoid in pregnant women and children, caution in patients with tendon
+problems.
+
+Prednisolone
+- Use: Inflammation, autoimmune disorders, allergies
+- Dosage: 5 mg to 10 mg per day (adjust as needed)
+- Side Effects: Weight gain, increased blood sugar, high blood pressure, mood swings
+- Precautions: Use cautiously in people with diabetes, peptic ulcers, or 
+hypertension.
+
+Clindamycin
+- Use: Bacterial infections (skin, bone, respiratory)
+- Dosage: 150 mg to 450 mg every 6-8 hours
+- Side Effects: Nausea, diarrhea, abdominal cramps, rash
+- Precautions: Use cautiously in people with a history of gastrointestinal disease, 
+particularly colitis.
+
+Fexofenadine
+- Use: Allergy symptoms (hay fever, hives)
+- Dosage: 60 mg twice a day or 180 mg once a day
+- Side Effects: Drowsiness (rare), headache, dry mouth
+- Precautions: Use cautiously in elderly patients, avoid alcohol.
+
+Lisinopril
+- Use: Hypertension, heart failure
+- Dosage: 10 mg to 40 mg once daily
+- Side Effects: Dizziness, headache, hyperkalemia
+- Precautions: Avoid during pregnancy, monitor kidney function.
+
+Metoprolol
+- Use: Hypertension, heart failure, angina
+- Dosage: 25 mg to 100 mg once daily
+- Side Effects: Fatigue, dizziness, depression, slow heart rate
+- Precautions: Caution in people with asthma or bronchospasm, avoid abrupt 
+withdrawal.
+
+Gabapentin
+- Use: Nerve pain, seizures, restless legs syndrome
+- Dosage: 300 mg to 600 mg three times a day
+- Side Effects: Dizziness, fatigue, weight gain, blurred vision
+- Precautions: Use cautiously in elderly patients, avoid alcohol.
+
+Fluconazole
+- Use: Fungal infections (yeast infections, cryptococcal meningitis)
+- Dosage: 150 mg as a single dose for vaginal yeast infection, or 200 mg daily for 
+systemic infections
+- Side Effects: Nausea, headache, liver toxicity (rare)
+- Precautions: Use cautiously in people with liver disease, pregnant women should 
+avoid.
+
+Amlodipine
+- Use: Hypertension, angina (chest pain)
+- Dosage: 5 mg to 10 mg once daily
+- Side Effects: Swelling of the ankles, dizziness, headache
+- Precautions: Use with caution in patients with heart failure, monitor for 
+peripheral edema.
+
+Loratadine
+- Use: Allergy symptoms (hay fever, hives)
+- Dosage: 10 mg once daily
+- Side Effects: Headache, dry mouth, drowsiness (rare)
+- Precautions: Avoid alcohol and sedating agents.
+
+Tamsulosin
+- Use: Benign prostatic hyperplasia (BPH), urinary retention
+- Dosage: 0.4 mg once daily
+- Side Effects: Dizziness, headache, abnormal ejaculation
+- Precautions: Caution in patients with hypotension, use with caution in patients 
+with liver disease.
+
+Lorazepam
+- Use: Anxiety, insomnia, seizure disorders
+- Dosage: 2 mg to 4 mg per day, divided into 2-3 doses
+- Side Effects: Drowsiness, dizziness, confusion, memory impairment
+- Precautions: Avoid alcohol, use cautiously in elderly or debilitated patients.
+
+Ranitidine
+- Use: Acid reflux, ulcers, heartburn
+- Dosage: 150 mg to 300 mg daily, depending on the condition
+- Side Effects: Headache, dizziness, constipation
+- Precautions: Avoid in patients with kidney problems, may interfere with certain 
+lab tests.
+
+Metronidazole
+- Use: Bacterial and parasitic infections (intestinal, vaginal, skin)
+- Dosage: 250 mg to 500 mg every 8 hours
+- Side Effects: Nausea, metallic taste, dizziness
+- Precautions: Avoid alcohol during treatment, may cause neurological side effects 
+in long-term use.
+
+Simvastatin
+- Use: Cholesterol reduction (hyperlipidemia)
+- Dosage: 10 mg to 40 mg daily (typically at bedtime)
+- Side Effects: Muscle pain, liver enzyme abnormalities, digestive issues
+- Precautions: Monitor liver function, avoid grapefruit juice.
+
+Omeprazole
+- Use: GERD, stomach ulcers
+- Dosage: 20 mg to 40 mg daily
+- Side Effects: Headache, nausea, diarrhea
+- Precautions: Prolonged use can lead to vitamin B12 deficiency, bone fractures.
+
+Furosemide
+- Use: Diuretic (Edema, Hypertension)
+- Dosage: 20 mg to 40 mg daily (can be adjusted)
+- Side Effects: Dehydration, electrolyte imbalances, dizziness
+- Precautions: Monitor kidney function, avoid in patients with low potassium.
+
+Doxycycline
+- Use: Bacterial infections (pneumonia, acne, Lyme disease)
+- Dosage: 100 mg to 200 mg daily
+- Side Effects: Nausea, photosensitivity (increased sun sensitivity)
+- Precautions: Avoid in pregnant women and children under 8 years old, take with 
+plenty of water to avoid esophageal irritation.
+
+Fentanyl
+- Use: Severe pain relief (for cancer, post-surgery)
+- Dosage: 12 mcg/hr to 100 mcg/hr transdermal patch (depending on patient’s 
+condition)
+- Side Effects: Drowsiness, respiratory depression, constipation
+- Precautions: Avoid in opioid-naive patients, monitor for overdose signs, avoid 
+alcohol.
+
+Sertraline
+- Use: Depression, anxiety, OCD, PTSD
+- Dosage: 25 mg to 200 mg daily
+- Side Effects: Nausea, insomnia, sexual dysfunction, headache
+- Precautions: Use cautiously in patients with a history of seizures or serotonin 
+syndrome.
+
+Hydrochlorothiazide
+- Use: Diuretic (Hypertension, Edema)
+- Dosage: 12.5 mg to 50 mg daily
+- Side Effects: Low potassium, dizziness, dehydration, increased blood sugar
+- Precautions: Use cautiously in patients with diabetes or gout, monitor 
+electrolytes.
+
+Baclofen
+- Use: Muscle spasm (due to multiple sclerosis, spinal cord injury)
+- Dosage: 5 mg to 20 mg three times daily
+- Side Effects: Drowsiness, dizziness, weakness, headache
+- Precautions: Avoid alcohol, monitor for CNS depression, use cautiously in patients
+with renal impairment.
+
+Fluticasone
+- Use: Allergies, asthma (nasal spray, inhaler)
+- Dosage: 1-2 sprays in each nostril once daily for nasal use, 44 mcg to 110 mcg 
+inhaled twice daily for asthma
+- Side Effects: Nasal irritation, headache, throat irritation, hoarseness
+- Precautions: Use cautiously in patients with glaucoma or cataracts, avoid use in 
+people with recent nasal surgery.

@@ -1,0 +1,248 @@
+/* MAIN WRAPPER */
+.chat-wrapper {
+  width: 100%;
+  height: 100vh;
+  /* background: #eceff1; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+/* HEADER */
+.chat-title {
+  background: white;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* CHAT BOX */
+.chat-box {
+  width: 90%;
+  max-width: 750px;
+  height: 70vh;
+  margin-top: 20px;
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  /* overflow-y: auto; */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* BUBBLES */
+.msg-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  font-size: 15px;
+  animation: fadeIn 0.25s;
+}
+
+.user-bubble {
+  background: #007aff;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+.bot-bubble {
+  background: #f1f3f4;
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+}
+
+/* INPUT BAR */
+.input-bar {
+  width: 90%;
+  max-width: 750px;
+  background: white;
+  margin-top: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.pin-icon {
+  font-size: 22px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.text-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.send-btn {
+  border: none;
+  background: #007aff;
+  color: white;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* UPLOAD MODAL BACKDROP */
+.upload-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* UPLOAD MODAL */
+.upload-modal {
+  width: 90%;
+  max-width: 420px;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeInScale 0.25s ease;
+}
+
+.upload-modal h3 {
+  margin-bottom: 18px;
+  color: #333;
+  font-size: 20px;
+}
+
+/* INPUTS */
+.upload-input-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-input-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.upload-input-group input[type="text"],
+.upload-input-group input[type="file"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* FILE NAME */
+.file-name {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* BUTTONS */
+.upload-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel-btn {
+  background: #ccc;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.upload-btn {
+  background: #007aff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* CHAT BOX  (make it wider like ChatGPT) */
+.chat-box {
+  width: 150%;
+  max-width: 1100px;    /* ← increased from 750px */
+  height: 70vh;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  background: white;
+  border-radius: 18px;
+  padding: 25px 28px;    /* ← more padding */
+  overflow-y: auto;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* INPUT BAR - also wider */
+.input-bar {
+  width: 150%;
+  max-width: 1100px;    /* ← expanded */
+  background: white;
+  margin-top: 5px;
+  margin-bottom:   1px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* HEADER - expand to match */
+.chat-title {
+  width: 150%;
+  max-width: 1100px;    /* ← match chat width */
+  background: white;
+  padding: 16px 26px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 14px;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.msg-bubble {
+  max-width: 85%;        /* ← increased from 80% */
+}
+
+
+.upload-modal {
+  width: 95%;
+  max-width: 520px;   /* ← wider */
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
