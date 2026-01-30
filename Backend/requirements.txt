@@ -16,4 +16,4 @@ python-multipart==0.0.20
 paramiko
 alembic 
 pgvector
-sentense-transformers
+sentence-transformers==5.2.1

@@ -7,7 +7,8 @@ function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const role = "user";
+  const [role, setRole] = useState("user"); 
+
   const [errors, setErrors] = useState({});
 
   const validateInputs = () => {
@@ -66,6 +67,16 @@ function RegisterPage() {
         />
         {errors.email && <p className="error-text">{errors.email}</p>}
 
+        {/* ROLE SELECT */}
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="reg-input"
+          >
+            <option value="user">User</option>
+            <option value="Admin">Admin</option>
+          </select>
+
         {/* PASSWORD INPUT */}
         <input
           type="password"
@@ -87,6 +98,8 @@ function RegisterPage() {
         {errors.confirmPassword && (
           <p className="error-text">{errors.confirmPassword}</p>
         )}
+
+
 
         {/* REGISTER BUTTON */}
         <button className="reg-btn" onClick={register}>

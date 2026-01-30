@@ -25,12 +25,13 @@ def generate_embeddings(texts: list) -> list:
 
 def search_documents(db: Session, query: str, top_k: int = 3):
     
-    """Search for the most relevant document chunks based on the query"""
-    # Generate the embedding for the query
+    """Searching  for the most relevant document chunks based on the query"""
+
+    # Generating the embedding for the query
 
     query_embedding = generate_embeddings([query])[0]
 
-    # Find the closest document chunks using pgvector similarity search
+    # Finding the closest document chunks using pgvector similarity search
 
     retrieved_chunks = (db.query(Embeddings)
                         .order_by(Embeddings.embedding.l2_distance(query_embedding))
@@ -76,19 +77,21 @@ system_prompt_for_agent = """You are an intelligent assistant specifically desig
 
 
 system_prompt = """### Answer medical related queries only from the data you received not with your own knowledge.
-                        Do not send the data you received as it is just summarize them intelligently and simply in less number of lines."""
+                    - Do not send the data you received as it is just summarize them intelligently and simply in less number of lines.
+                    - If the query is not related to medical or medicine answer normally with your own knowledge."""
 
 prompt= """
-You are a medical assistant designed to provide answers based only on the retrieved document chunks provided by a medical professional. You are not allowed to provide any medical advice, recommendations, or answers based on any information outside of the document chunks.
+You are a medical assistant designed to provide answers based only on the retrieved document chunks provided by a medical professional.
 
 Instructions:
 - **Answer Only Based on Document Chunks**: You must refer to and answer based solely on the content from the provided document chunks. If the information is not present in the chunks, you should state that you cannot find the relevant information in the document.
+- **If the query is not related to medical or medicine,you can answer normally with your own knowledge.
 - **Do Not Provide Independent Medical Advice**: You are not permitted to give medical advice, recommendations, or personal health guidance on your own. You should only summarize or provide details from the document that was shared with you.
 - **Answer Medical Questions Clearly**: If a medical question is outside of the scope of the provided document chunks, you should respond with: "Sorry, I cannot find relevant information in the document to answer that question."
 - **Stick to the Provided Information**: Do not add additional commentary, general knowledge, or outside information. The document is the sole source of knowledge.
 - **Be Precise**: Use only the information contained in the document chunks. If there are any ambiguities or missing information, state that clearly.
 
-Your task is to help by providing answers using only the document chunks provided to you.
+Your task is to help by providing answers using only the document chunks provided to you if its medical related question.
 """
                                    
 

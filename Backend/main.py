@@ -16,15 +16,27 @@ from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind = engine)
 
-llm = ChatOllama(model = "llama3.1:8b")
 
 app = FastAPI()
 
+
 load_dotenv()
 
-GEMINI_API_KEY = os.getenv("api_key")
+try:
 
-gemini_llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0.3, google_api_key=GEMINI_API_KEY)
+    GEMINI_API_KEY = os.getenv("api_key")
+
+    # Use LLM based on Your availability
+
+    gemini_llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0.3, google_api_key=GEMINI_API_KEY)
+
+    #Please Change "model = llm" in "create_agent" if using Ollama
+
+    llm = ChatOllama(model = "llama3.1:8b") 
+
+except Exception as e:
+
+    print(f"Exception : Please provide api_key in .env file or {e}" )
 
 
 app.add_middleware(
@@ -81,13 +93,21 @@ def login_api(user : User, db: Session = Depends(get_db) ):
     
         user = db.query(Users).filter(Users.username == user.username, Users.password == user.password).first()
 
+        print(user.role)
+
         if user:
 
-            return "User exists"
+            return {
+                    "status": "success",
+                    "role": user.role
+                    }
         
         else:
 
-            return "User doesn't exist, please register."
+            return {
+                    "status": "error",
+                    "message": "User doesn't exist"
+                    }
     
     except Exception as e :
 
@@ -107,15 +127,14 @@ def master_api(query : Query, db: Session = Depends(get_db)):
         agent = create_agent(
                 model= gemini_llm,
                 tools=[],
-                system_prompt = system_prompt
+                system_prompt = prompt
                 )
 
-
         response = agent.invoke({
-            "messages":[{"role":"user","content":query.query,
-                         "role":"user","content":retrieved_chunks}]
-        })
-
+                    "messages": [
+                        {"role": "user", "content": f"User Query : {query.query}\n\nContext:\n{retrieved_chunks}"}
+                    ]
+                })
 
         return response["messages"][-1].content
 

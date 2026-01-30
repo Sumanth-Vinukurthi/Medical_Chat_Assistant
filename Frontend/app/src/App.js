@@ -4,6 +4,7 @@ import LoginPage from './Components/LoginPage';
 import RegisterPage from './Components/RegisterPage';
 import ChatBotPage from './Components/ChatBotPage';
 import FileUploadComponent from './Components/FileUploadComponent';
+import PrivateRoute from './Components/PrivateRoute';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/chat" element={<ChatBotPage/>} />
+          <Route path="/chat" element={<PrivateRoute><ChatBotPage/></PrivateRoute>} />
         </Routes>
       </div>
     </BrowserRouter>

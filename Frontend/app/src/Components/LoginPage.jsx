@@ -23,16 +23,21 @@ const LoginPage = () => {
           }
         );
 
-        if (response.data === "User exists"){
+        if (response.data.status === "success") {
 
-          alert("Logged in Successfully !");
-          navigate("/chat");
+              const role = response.data.role;
 
-        }else{
+              alert("Logged in successfully!");
 
-          alert(response.data);
-          
-        }
+              localStorage.setItem("isLoggedIn", "true");
+
+              navigate("/chat", { state: { role } });
+
+          } else {
+
+              alert(response.data.message);
+
+          }
     
     } catch (error) {
       alert("Failed to Login !");
@@ -41,34 +46,42 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
+  <div className="login-wrapper">
+    <div className="login-card">
+
+      <h1 className="app-title">Medical Chat Assistant</h1>
+      <p className="app-subtitle">AI-powered medical knowledge assistant</p>
+
       <h2>Login</h2>
+
       <form onSubmit={handleSubmit}>
-        <div>
-          <input 
-            type="email" 
-            placeholder="Email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required
-          />
-        </div>
-        <div>
-          <input 
-            type="password" 
-            placeholder="Password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            required
-          />
-        </div>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
         <button type="submit">Login</button>
       </form>
-      <p>
+
+      <p className="register-text">
         New user? <Link to="/register">Register here</Link>
       </p>
+
     </div>
-  );
+  </div>
+);
+
 };
 
 export default LoginPage;
