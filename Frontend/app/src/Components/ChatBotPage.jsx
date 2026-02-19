@@ -12,42 +12,100 @@ function ChatBotPage() {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
 
+  const initialSuggestions = [
+  "Medicine for fever ?","Medicine for cold ?","Medicine for cough ?"
+  ];
+
+  const [suggestions, setSuggestions] = useState(initialSuggestions);
+  const [conversationStarted, setConversationStarted] = useState(false);
+
+
   const messagesEndRef = useRef(null);
 
   const location = useLocation();
   const role = location.state?.role;
-  console.log("User role:", role);
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
-    setMessages((prev) => [...prev, { role: "user", text: input }]);
+  if (!input.trim()) return;
 
-    try {
+  const userText = input;
+  setInput("");
+  setMessages((prev) => [...prev, { role: "user", text: userText }]);
 
-      const reply = await axios.post( "http://127.0.0.1:7000/chat", { query : input });
-      setInput("");
-      
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          { role: "bot", text: reply.data },
-        ]);
-      }, 600);
-      
-    } catch (error) {
+   setSuggestions([]);
 
-      console.log(error);
+  try {
+    const reply = await axios.post("http://127.0.0.1:7000/chat", { query: userText });
+
+    const answer = reply.data[0];
+    const followups = reply.data[1] || [];
+
+    setTimeout(() => {
       setMessages((prev) => [
-          ...prev,
-          { role: "bot", text: "Error contacting server" },
-        ]);
-    };
-    
-  };
+        ...prev,
+        { role: "bot", text: answer },
+      ]);
+
+      setSuggestions(followups); // 👈 replace suggestions after reply
+    }, 600);
+
+  } catch (error) {
+     setSuggestions([]); 
+    setMessages((prev) => [
+      ...prev,
+      { role: "bot", text: "Error contacting server" },
+    ]);
+  }
+};
+
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  const handleSuggestionClick = async (text) => {
+
+  setMessages((prev) => [...prev, { role: "user", text }]);
+
+  setSuggestions([]);
+
+  try {
+    const reply = await axios.post("http://127.0.0.1:7000/chat", { query: text });
+
+    const answer = reply.data[0];
+    const followups = reply.data[1] || [];
+
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: answer },
+      ]);
+
+      setSuggestions(followups); // 👈 replace suggestions
+    }, 600);
+
+  } catch (error) {
+     setSuggestions([]); 
+    setMessages((prev) => [
+      ...prev,
+      { role: "bot", text: "Error contacting server" },
+    ]);
+  }
+};
+
+
+useEffect(() => {
+  setMessages([
+    {
+      role: "bot",
+      text: "Hi 👋, How may I help you?"
+    }
+  ]);
+
+  setSuggestions(initialSuggestions);
+}, []);
+
+
 
   const handleUpload = async () => {
     if (!title || !file) {
@@ -72,10 +130,7 @@ function ChatBotPage() {
 
     }
 
-    
 
-    console.log("Uploaded Title:", title);
-    console.log("Uploaded File:", file);
 
     setShowUpload(false);
     setTitle("");
@@ -88,18 +143,35 @@ function ChatBotPage() {
 
       {/* CHAT WINDOW */}
       <div className="chat-box">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`msg-bubble ${
-              msg.role === "user" ? "user-bubble" : "bot-bubble"
-            }`}
-          >
-            {msg.text}
-          </div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`msg-bubble ${
+                msg.role === "user" ? "user-bubble" : "bot-bubble"
+              }`}
+            >
+              {msg.text}
+            </div>
+          ))}
+
+          {/* Suggestions */}
+          {suggestions.length > 0 && (
+            <div className="suggestions">
+              {suggestions.map((sug, i) => (
+                <button
+                  key={i}
+                  className="suggestion-btn"
+                  onClick={() => handleSuggestionClick(sug)}
+                >
+                  {sug}
+                </button>
+              ))}
+            </div>
+          )}
+
+          <div ref={messagesEndRef} />
+        </div>
+
 
       {/* INPUT BAR */}
       <div className="input-bar">

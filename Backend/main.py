@@ -8,10 +8,11 @@ from database import get_db, engine
 from dbmodels import Base, Users, Embeddings
 from models import Credentials, User, Query
 from sqlalchemy.orm import Session
-from rag_tools import chunk_text, generate_embeddings, search_documents, system_prompt_for_agent, system_prompt,prompt
-import os
+from rag_tools import chunk_text, generate_embeddings, search_documents, system_prompt_for_agent, system_prompt,prompt,parse_llm_json_output
+import os, json
 from langchain_google_genai import ChatGoogleGenerativeAI
 from fastapi.middleware.cors import CORSMiddleware
+# from fastapi import HT
 
 
 Base.metadata.create_all(bind = engine)
@@ -120,23 +121,68 @@ def master_api(query : Query, db: Session = Depends(get_db)):
 
     try:
 
-        retrieved_chunks = search_documents( db, query.query )
+        medicine_details = {
 
-        print(retrieved_chunks)
+            "fever":[
+                "Paracetamol (Acetaminophen), Dose (Adult): 500 mg – 650 mg every 6 hours if fever > 100°F, Max: 3,000 mg/day (do NOT cross)",
+                "Ibuprofen : Stronger than paracetamol (also anti-inflammatory), Dose (Adult): 200–400 mg every 8 hours after food, Max: 1,200 mg/day (OTC safe range)",
+                "Nimesulide : Very effective but use cautiously, Dose (Adult): 100 mg twice daily after food, ⚠ Not for long use (can affect liver) Only 1–2 days if needed."
+                     ],
+            "cold":[
+                "Cetirizine: Best for: sneezing, watery nose, allergy-type cold, Dose (Adult): 10 mg once daily (usually at night)",
+                "Phenylephrine: Best for: blocked nose / nasal congestion, Dose (Adult):5–10 mg every 6–8 hrs (often inside combination cold tablets)",
+                "Paracetamol Best for: cold with fever, headache, body pain, Dose (Adult): 500–650 mg every 6 hrs if needed (Max 3,000 mg/day)"
+                ],
+            "cough":[
+                "Dextromethorphan: Stops the cough reflex, Dose (Adult): 10–20 mg every 6–8 hours",
+                "Ambroxol: Loosens thick mucus so you can cough it out, Dose (Adult): 30 mg 2–3 times daily",
+                "Acetylcysteine: Breaks down stubborn mucus, Dose (Adult): 600 mg once daily (or 200 mg 3×/day)"
+                ]
 
-        agent = create_agent(
-                model= gemini_llm,
-                tools=[],
-                system_prompt = prompt
-                )
+            }
+        
+        initial_suggestions=["Medicine for fever ?","Medicine for cold ?","Medicine for cough ?"]
+        # follow_ups = ["Who should not use paracetamol ?","Who should not use Cetirizine ?","Who should not use paracetamol ?"]
 
-        response = agent.invoke({
-                    "messages": [
-                        {"role": "user", "content": f"User Query : {query.query}\n\nContext:\n{retrieved_chunks}"}
-                    ]
-                })
 
-        return response["messages"][-1].content
+        if query.query == initial_suggestions[0]:
+
+            return [" | ".join(medicine_details["fever"]),[]]
+        
+        elif query.query == initial_suggestions[1]:
+
+            return [" | ".join(medicine_details["cold"]),[]]
+        
+        elif query.query == initial_suggestions[2]:
+
+            return [" | ".join(medicine_details["cough"]),[]]
+        
+        else:
+
+            retrieved_chunks = search_documents( db, query.query )
+
+            @tool
+            def rag_tool():
+
+                '''Use this tool for context for RAG'''
+
+                return "Always answer from the documents chunks you will receive."
+
+            agent = create_agent(
+                    model= gemini_llm,
+                    tools=[rag_tool],
+                    system_prompt = prompt
+                    )
+
+            agent_response = agent.invoke({
+                        "messages": [
+                            {"role": "user", "content": f"User Query : {query.query}\n\nContext:\n{retrieved_chunks}"}
+                        ]
+                    })
+        
+            raw_text = agent_response["messages"][-1].content
+            response = parse_llm_json_output(raw_text)
+            return response
 
     except Exception as e:
 

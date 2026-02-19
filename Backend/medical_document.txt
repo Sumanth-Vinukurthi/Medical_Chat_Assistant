@@ -30,7 +30,7 @@ Amoxicillin
 - Side Effects: Nausea, diarrhea, allergic reactions
 - Precautions: Allergies to penicillin, use with caution in people with kidney 
 problems.
-
+    
 Hyoscine
 - Use: Motion sickness, Irritable Bowel Syndrome (IBS)
 - Dosage: 0.3 mg to 0.6 mg every 8 hours

@@ -223,3 +223,28 @@ body {
   from { opacity: 0; transform: scale(0.92); }
   to { opacity: 1; transform: scale(1); }
 }
+
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0;
+  align-items: flex-start;
+}
+
+.suggestion-btn {
+  background: #eef3ff;
+  border: 1px solid #c9d6ff;
+  color: #2d4fff;
+  padding: 8px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.suggestion-btn:hover {
+  background: #2d4fff;
+  color: white;
+}
